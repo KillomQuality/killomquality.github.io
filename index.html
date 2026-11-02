@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KillomQuality</title>
+  <meta name="description" content="KillomQuality — личный сайт: обо мне, проекты и контакты.">
+  <meta property="og:title" content="KillomQuality">
+  <meta property="og:description" content="Обо мне, проекты и контакты.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://killomquality.github.io/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="logo" href="#top">Killom<span>Quality</span></a>
+      <nav>
+        <a href="#about">Обо мне</a>
+        <a href="#projects">Проекты</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <p class="eyebrow">Привет, я</p>
+      <h1>KillomQuality</h1>
+      <p class="lead">Коротко о том, чем вы занимаетесь. Замените этот текст на одно-два предложения о себе.</p>
+      <div class="actions">
+        <a class="btn primary" href="#projects">Смотреть проекты</a>
+        <a class="btn" href="#contact">Связаться</a>
+      </div>
+    </section>
+
+    <section id="about" class="container section">
+      <h2>Обо мне</h2>
+      <p>Здесь можно рассказать подробнее: опыт, интересы, навыки, чем можете быть полезны.</p>
+      <ul class="tags">
+        <li>Навык 1</li>
+        <li>Навык 2</li>
+        <li>Навык 3</li>
+      </ul>
+    </section>
+
+    <section id="projects" class="container section">
+      <h2>Проекты</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Проект один</h3>
+          <p>Краткое описание проекта и вашей роли в нём.</p>
+          <a href="#">Подробнее →</a>
+        </article>
+        <article class="card">
+          <h3>Проект два</h3>
+          <p>Краткое описание проекта и вашей роли в нём.</p>
+          <a href="#">Подробнее →</a>
+        </article>
+        <article class="card">
+          <h3>Проект три</h3>
+          <p>Краткое описание проекта и вашей роли в нём.</p>
+          <a href="#">Подробнее →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="container section">
+      <h2>Контакты</h2>
+      <p>Пишите — отвечу.</p>
+      <ul class="contacts">
+        <li><a href="https://github.com/KillomQuality">GitHub</a></li>
+        <li><a href="https://t.me/">Telegram</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© <span id="year"></span> KillomQuality</div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
