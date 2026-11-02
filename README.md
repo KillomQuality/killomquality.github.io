@@ -1,14 +1,14 @@
 # killomquality.github.io
 
-Личный сайт на GitHub Pages: https://killomquality.github.io/
+Резюме Егора Каплина (программист 1С) на GitHub Pages: https://killomquality.github.io/
 
 Чистый HTML/CSS, без сборки — GitHub Pages публикует файлы как есть.
 
 ## Структура
 
-- `index.html` — главная страница (тексты, проекты, контакты)
+- `index.html` — резюме (все стили внутри файла)
 - `404.html` — страница «не найдено»
-- `assets/style.css` — стили (цвета задаются в `:root`, есть тёмная тема)
+- `assets/style.css` — стили страницы 404
 - `assets/favicon.svg` — иконка вкладки
 - `.nojekyll` — отключает обработку Jekyll
 

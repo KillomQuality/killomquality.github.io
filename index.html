@@ -1,85 +1,303 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>KillomQuality</title>
-  <meta name="description" content="KillomQuality — личный сайт: обо мне, проекты и контакты.">
-  <meta property="og:title" content="KillomQuality">
-  <meta property="og:description" content="Обо мне, проекты и контакты.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://killomquality.github.io/">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Резюме Егора Каплина — программист 1С">
+<meta name="author" content="Egor Kaplin">
+<title>Егор Каплин · Программист 1С</title>
+<meta property="og:title" content="Егор Каплин · Программист 1С">
+<meta property="og:description" content="Резюме: программист 1С, 3 года опыта, 1С:Предприятие 8.3, C# / ASP.NET Core">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://killomquality.github.io/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* Двухколоночный лист: тёмный сайдбар с идентификацией и навыками, светлая колонка с опытом */
+  :root{
+    --ink:#262A31;
+    --ink-soft:#43484F;
+    --panel:#2E333A;
+    --panel-soft:#3D434B;
+    --paper:#F5F4F1;
+    --card:#FFFFFF;
+    --accent:#D2922C;
+    --accent-ink:#8A5C12;
+    --accent-soft:#F7EDD9;
+    --muted:#6F747B;
+    --muted-dark:#A8ADB4;
+    --on-panel:#EFF0F1;
+    --line:#E4E3DF;
+    --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,monospace;
+    --sans:'Golos Text',system-ui,-apple-system,'Segoe UI',sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#E7E6E3;
+      --ink-soft:#C3C2BE;
+      --panel:#22262B;
+      --panel-soft:#2E333A;
+      --paper:#191C20;
+      --card:#21252A;
+      --accent:#E2A845;
+      --accent-ink:#E2A845;
+      --accent-soft:#33291A;
+      --muted:#9AA0A7;
+      --muted-dark:#9AA0A7;
+      --on-panel:#E7E6E3;
+      --line:#31363C;
+      color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#E7E6E3;
+    --ink-soft:#C3C2BE;
+    --panel:#22262B;
+    --panel-soft:#2E333A;
+    --paper:#191C20;
+    --card:#21252A;
+    --accent:#E2A845;
+    --accent-ink:#E2A845;
+    --accent-soft:#33291A;
+    --muted:#9AA0A7;
+    --muted-dark:#9AA0A7;
+    --on-panel:#E7E6E3;
+    --line:#31363C;
+    color-scheme:dark;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.6;font-size:16px}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+  .wrap{display:grid;grid-template-columns:340px minmax(0,1fr);max-width:1200px;margin:0 auto;background:var(--card);box-shadow:0 0 60px rgba(38,42,49,.10)}
+
+  /* сайдбар */
+  .side{background:var(--panel);color:var(--on-panel);display:flex;flex-direction:column;gap:34px;
+        padding-block:48px 52px;
+        padding-left:max(34px,env(safe-area-inset-left,0px));
+        padding-right:max(34px,env(safe-area-inset-right,0px))}
+  .avatar{width:112px;height:112px;border-radius:50%;background:linear-gradient(140deg,var(--accent),#8A5C12);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:38px;letter-spacing:1px;color:#1F2227}
+  .side h1{font-size:29px;font-weight:800;line-height:1.2;margin-top:18px;text-wrap:balance}
+  .role{font-family:var(--mono);font-size:13px;color:var(--accent);margin-top:8px;letter-spacing:.4px}
+  .exp-badge{font-family:var(--mono);font-size:11.5px;color:var(--muted-dark);margin-top:6px;letter-spacing:.6px}
+  .contacts{display:flex;flex-direction:column;gap:12px;font-size:14.5px}
+  .contacts a{text-decoration:none;color:var(--on-panel);border-bottom:1px dashed rgba(200,206,214,.35);width:fit-content;transition:border-color .2s,color .2s}
+  .contacts a:hover{color:var(--accent);border-color:var(--accent)}
+  .contacts .label{font-family:var(--mono);font-size:11px;color:var(--muted-dark);text-transform:uppercase;letter-spacing:1.2px;display:block;margin-bottom:2px}
+  .side-section h2{font-family:var(--mono);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.6px;color:var(--muted-dark);margin-bottom:14px}
+  .skill-group{margin-bottom:16px}
+  .skill-group .g{font-size:13.5px;font-weight:600;color:#D6DADF;margin-bottom:6px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{font-family:var(--mono);font-size:11.5px;background:var(--panel-soft);border:1px solid rgba(168,173,180,.28);border-radius:6px;padding:3px 8px;color:#DDE1E5}
+  .chip.base{opacity:.72}
+  .edu{background:var(--panel-soft);border-radius:12px;padding:16px 18px}
+  .edu .t{font-weight:600;font-size:14.5px;line-height:1.4}
+  .edu .d{font-family:var(--mono);font-size:12px;color:var(--muted-dark);margin-top:6px}
+  .lang{display:flex;justify-content:space-between;gap:10px;font-size:14px;padding:6px 0;border-bottom:1px solid rgba(168,173,180,.18)}
+  .lang:last-child{border:none}
+  .lang span{font-family:var(--mono);font-size:12px;color:var(--accent)}
+
+  /* основная колонка */
+  .main{background:var(--paper);min-width:0;
+        padding-block:56px 64px;
+        padding-left:max(56px,env(safe-area-inset-left,0px));
+        padding-right:max(56px,env(safe-area-inset-right,0px))}
+  .main h2{font-size:22px;font-weight:800;margin-bottom:20px;display:flex;align-items:center;gap:12px}
+  .main h2::after{content:"";flex:1;height:1px;background:var(--line)}
+  section{margin-bottom:48px}
+  section:last-child{margin-bottom:0}
+  .about{font-size:16.5px;color:var(--ink-soft);max-width:68ch}
+
+  .proj{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin-bottom:20px;transition:box-shadow .2s,transform .2s}
+  .proj:last-child{margin-bottom:0}
+  .proj:hover{box-shadow:0 8px 30px rgba(38,42,49,.09);transform:translateY(-2px)}
+  .proj-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px}
+  .proj-head h3{font-size:18.5px;font-weight:800}
+  .date{font-family:var(--mono);font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .proj .sub{font-size:14.5px;color:var(--muted);margin:4px 0 14px}
+  .proj .company{font-size:14.5px;color:var(--accent-ink);font-weight:600;margin:4px 0 14px}
+  .proj ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+  .proj li{position:relative;padding-left:26px;font-size:15px;color:var(--ink-soft)}
+  .proj li::before{content:"›";position:absolute;left:0;top:3px;font-family:var(--mono);font-weight:700;color:var(--accent-ink);background:var(--accent-soft);border-radius:5px;width:18px;height:18px;font-size:13px;display:flex;align-items:center;justify-content:center}
+  .stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+  .stack .chip{background:var(--accent-soft);border-color:transparent;color:var(--accent-ink)}
+
+  @media(max-width:900px){
+    .wrap{grid-template-columns:minmax(0,1fr)}
+    .side{padding-block:40px;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+    .main{padding-block:40px;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+  }
+  @media(prefers-reduced-motion:reduce){.proj{transition:none}}
+  @media print{
+    body{background:#fff}
+    .wrap{box-shadow:none;max-width:none}
+    .proj{break-inside:avoid;page-break-inside:avoid}
+  }
+</style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav">
-      <a class="logo" href="#top">Killom<span>Quality</span></a>
-      <nav>
-        <a href="#about">Обо мне</a>
-        <a href="#projects">Проекты</a>
-        <a href="#contact">Контакты</a>
-      </nav>
+
+<div class="wrap">
+
+  <aside class="side">
+    <div>
+      <div class="avatar">ЕК</div>
+      <h1>Егор Каплин</h1>
+      <div class="role">ПРОГРАММИСТ 1С</div>
+      <div class="exp-badge">опыт 3 года · 1С:Предприятие 8.3</div>
     </div>
-  </header>
 
-  <main id="top">
-    <section class="hero container">
-      <p class="eyebrow">Привет, я</p>
-      <h1>KillomQuality</h1>
-      <p class="lead">Коротко о том, чем вы занимаетесь. Замените этот текст на одно-два предложения о себе.</p>
-      <div class="actions">
-        <a class="btn primary" href="#projects">Смотреть проекты</a>
-        <a class="btn" href="#contact">Связаться</a>
+    <div class="contacts">
+      <div><span class="label">Телефон</span>+7 (977) 331-91-56</div>
+      <div><span class="label">Email</span><a href="mailto:qualitykillomwork@gmail.com">qualitykillomwork@gmail.com</a></div>
+      <div><span class="label">GitHub</span><a href="https://github.com/QualityKillom" target="_blank" rel="noopener">github.com/QualityKillom</a></div>
+      <div><span class="label">Локация</span>Москва, Россия</div>
+    </div>
+
+    <div class="side-section">
+      <h2>Навыки</h2>
+
+      <div class="skill-group"><div class="g">Платформа</div>
+        <div class="chips"><span class="chip">1С:Предприятие 8.3</span><span class="chip">управляемые формы</span><span class="chip">клиент-серверный режим</span><span class="chip">БСП</span></div></div>
+
+      <div class="skill-group"><div class="g">Язык и запросы</div>
+        <div class="chips"><span class="chip">встроенный язык 1С</span><span class="chip">язык запросов</span><span class="chip">СКД</span><span class="chip">временные таблицы</span><span class="chip">оптимизация запросов</span></div></div>
+
+      <div class="skill-group"><div class="g">Типовые конфигурации</div>
+        <div class="chips"><span class="chip">Бухгалтерия 3.0</span><span class="chip">ЗУП 3.1</span><span class="chip">УТ 11</span><span class="chip base">УНФ · базово</span><span class="chip base">ERP 2 · базово</span></div></div>
+
+      <div class="skill-group"><div class="g">Разработка</div>
+        <div class="chips"><span class="chip">расширения конфигураций</span><span class="chip">отчёты на СКД</span><span class="chip">печатные формы</span><span class="chip">внешние обработки</span><span class="chip">регистры</span><span class="chip">подписки на события</span><span class="chip">роли и права</span></div></div>
+
+      <div class="skill-group"><div class="g">Интеграции и обмен</div>
+        <div class="chips"><span class="chip">HTTP-сервисы</span><span class="chip">JSON / XML</span><span class="chip">загрузка из Excel</span><span class="chip base">web-сервисы (SOAP) · базово</span><span class="chip base">планы обмена, EnterpriseData · базово</span><span class="chip base">Конвертация данных 2.0 · базово</span></div></div>
+
+      <div class="skill-group"><div class="g">Инструменты</div>
+        <div class="chips"><span class="chip">Конфигуратор</span><span class="chip">хранилище конфигурации</span><span class="chip">отладчик</span><span class="chip">замер производительности</span><span class="chip">Git</span><span class="chip base">1C:EDT · базово</span></div></div>
+
+      <div class="skill-group"><div class="g">C# / .NET</div>
+        <div class="chips"><span class="chip">C#</span><span class="chip">.NET 8 / 10</span><span class="chip">ASP.NET Core</span><span class="chip">REST API</span><span class="chip">Minimal API</span><span class="chip">Blazor Server</span><span class="chip">Entity Framework Core</span><span class="chip">Dapper</span><span class="chip">JWT Auth</span><span class="chip">Hangfire</span><span class="chip">async/await</span><span class="chip">многопоточность</span><span class="chip base">WPF · базово</span></div></div>
+
+      <div class="skill-group"><div class="g">Базы данных и архитектура</div>
+        <div class="chips"><span class="chip">PostgreSQL</span><span class="chip">SQL</span><span class="chip">полнотекстовый поиск · tsvector</span><span class="chip base">MS SQL · базово</span><span class="chip">SOLID</span><span class="chip">DDD</span><span class="chip">Clean Architecture</span><span class="chip">Repository / Unit of Work</span><span class="chip">паттерны GoF</span></div></div>
+
+      <div class="skill-group"><div class="g">Инфраструктура и тестирование</div>
+        <div class="chips"><span class="chip">Git · GitLab CI</span><span class="chip">Docker</span><span class="chip">unit-тесты · NUnit</span><span class="chip">Playwright</span><span class="chip base">Apache Kafka · базово</span><span class="chip base">Kubernetes · базово</span></div></div>
+    </div>
+
+    <div class="side-section">
+      <h2>Образование</h2>
+      <div class="edu">
+        <div class="t">Техникум информатики и права</div>
+        <div class="d">Тирасполь · 2022 — 2026</div>
       </div>
+    </div>
+
+    <div class="side-section">
+      <h2>Языки</h2>
+      <div class="lang">Русский <span>родной</span></div>
+      <div class="lang">Английский <span>B1 · Intermediate</span></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section>
+      <h2>О себе</h2>
+      <p class="about">Программист 1С с тремя годами коммерческого опыта: доработка и сопровождение типовых конфигураций на платформе 8.3. Пишу доработки расширениями, чтобы конфигурация оставалась на поддержке и обновлялась без ручного разбора конфликтов. Разрабатываю подсистемы целиком — справочники, документы, регистры, проведение, роли, — делаю отчёты на СКД и печатные формы под задачи бухгалтерии, склада и руководства. Настраиваю обмен данными через HTTP- и web-сервисы, JSON/XML и планы обмена. Разбираю медленные участки через замер производительности и анализ запросов. Параллельно разрабатываю backend на C# / ASP.NET Core, поэтому делаю интеграции с обеих сторон: и сервис 1С, и внешнее приложение, которое с ним общается — включая проверку контрагентов по ИНН и ОГРН и фоновое обновление данных.</p>
     </section>
 
-    <section id="about" class="container section">
-      <h2>Обо мне</h2>
-      <p>Здесь можно рассказать подробнее: опыт, интересы, навыки, чем можете быть полезны.</p>
-      <ul class="tags">
-        <li>Навык 1</li>
-        <li>Навык 2</li>
-        <li>Навык 3</li>
-      </ul>
+    <section>
+      <h2>Опыт работы</h2>
+
+      <article class="proj">
+        <div class="proj-head"><h3>Программист 1С</h3><span class="date">01.2024 — 12.2025</span></div>
+        <p class="company">DEX</p>
+        <ul>
+          <li>Разрабатывал и сопровождал доработки конфигураций на 1С:Предприятие 8.3 — «Управление торговлей 11» и «Бухгалтерия предприятия 3.0»</li>
+          <li>Реализовывал подсистемы целиком: справочники, документы, регистры накопления и сведений, проведение, подписки на события, роли и права доступа</li>
+          <li>Выносил доработки в расширения конфигураций, чтобы типовые решения оставались на поддержке и обновлялись без ручного разбора конфликтов</li>
+          <li>Разрабатывал отчёты на СКД: запросы с временными таблицами и соединениями, вычисляемые поля и итоги, пользовательские настройки и сохранённые варианты</li>
+          <li>Настраивал интеграции: HTTP- и web-сервисы 1С, обмен JSON и XML с внешними системами, обмен между базами через планы обмена и EnterpriseData</li>
+          <li>Связал учётную базу с внутренним сервисом агрегации данных о компаниях: автозаполнение реквизитов контрагентов по ИНН и ОГРН, регулярное обновление и отслеживание изменений</li>
+          <li>Оптимизировал производительность: находил запросы в цикле, переписывал вложенные запросы на временные таблицы, пересматривал индексы, работал с замером производительности и технологическим журналом</li>
+          <li>Обновлял типовые конфигурации с сохранением доработок, вёл разработку в хранилище конфигурации, разбирал конфликты при объединении</li>
+          <li>Исправлял дефекты, анализировал причины возникновения ошибок, готовил техническую документацию и участвовал в code review доработок</li>
+        </ul>
+        <div class="stack"><span class="chip">1С 8.3</span><span class="chip">УТ 11</span><span class="chip">Бухгалтерия 3.0</span><span class="chip">расширения</span><span class="chip">СКД</span><span class="chip">HTTP-сервисы</span><span class="chip">планы обмена</span></div>
+      </article>
+
+      <article class="proj">
+        <div class="proj-head"><h3>Программист 1С</h3><span class="date">01.2023 — 01.2024</span></div>
+        <p class="company">TirScript</p>
+        <ul>
+          <li>Сопровождал пользователей конфигураций на платформе 8.3: разбирал обращения, ошибки проведения документов и расхождения в отчётах</li>
+          <li>Дорабатывал управляемые формы и печатные формы, добавлял реквизиты и проверки заполнения</li>
+          <li>Разрабатывал внешние обработки и отчёты на СКД по заявкам бухгалтерии и склада</li>
+          <li>Писал запросы к регистрам накопления и сведений для сверки остатков и взаиморасчётов</li>
+          <li>Реализовывал загрузку данных из Excel и CSV в справочники и документы</li>
+          <li>Настраивал роли и разграничение прав доступа, писал инструкции для пользователей</li>
+          <li>Разрабатывал серверные сервисы на C# / ASP.NET Core, через которые внешние приложения обменивались данными с базой 1С</li>
+        </ul>
+        <div class="stack"><span class="chip">1С 8.3</span><span class="chip">СКД</span><span class="chip">управляемые формы</span><span class="chip">язык запросов</span><span class="chip">C#</span><span class="chip">ASP.NET Core</span></div>
+      </article>
     </section>
 
-    <section id="projects" class="container section">
+    <section>
       <h2>Проекты</h2>
-      <div class="grid">
-        <article class="card">
-          <h3>Проект один</h3>
-          <p>Краткое описание проекта и вашей роли в нём.</p>
-          <a href="#">Подробнее →</a>
-        </article>
-        <article class="card">
-          <h3>Проект два</h3>
-          <p>Краткое описание проекта и вашей роли в нём.</p>
-          <a href="#">Подробнее →</a>
-        </article>
-        <article class="card">
-          <h3>Проект три</h3>
-          <p>Краткое описание проекта и вашей роли в нём.</p>
-          <a href="#">Подробнее →</a>
-        </article>
-      </div>
-    </section>
 
-    <section id="contact" class="container section">
-      <h2>Контакты</h2>
-      <p>Пишите — отвечу.</p>
-      <ul class="contacts">
-        <li><a href="https://github.com/KillomQuality">GitHub</a></li>
-        <li><a href="https://t.me/">Telegram</a></li>
-      </ul>
+      <article class="proj">
+        <div class="proj-head"><h3>QualityDataAnalysis</h3><span class="date">2026</span></div>
+        <p class="sub">Система мониторинга деловых СМИ и проверки контрагентов (.NET 10)</p>
+        <ul>
+          <li>Спроектировал решение по Clean Architecture: Domain, Infrastructure, Web, Api, Test и настольное приложение на WPF</li>
+          <li>Разработал веб-приложение на Blazor Server: живой поиск по изданиям, темы мониторинга, справочник компаний и аналитика с графиками</li>
+          <li>Реализовал полнотекстовый поиск в PostgreSQL (tsvector, GIN-индекс, русский словарь) с учётом форм слов и подсветкой совпадений</li>
+          <li>Сделал конструктор булевых запросов (обязательные слова, группы «хотя бы одно из», исключения) с компиляцией в tsquery</li>
+          <li>Интегрировал Dadata для проверки компаний по ИНН и ОГРН с кэшированием ответов — тот же сценарий, что и при заполнении контрагентов в 1С</li>
+          <li>Покрыл домен и репозитории 162 unit-тестами на NUnit, настроил аутентификацию на ASP.NET Identity с подтверждением почты</li>
+        </ul>
+        <div class="stack"><span class="chip">.NET 10</span><span class="chip">Blazor Server</span><span class="chip">Minimal API</span><span class="chip">PostgreSQL</span><span class="chip">EF Core</span><span class="chip">Clean Architecture</span><span class="chip">WPF</span><span class="chip">NUnit</span></div>
+      </article>
+
+      <article class="proj">
+        <div class="proj-head"><h3>Конфигурация «Учёт заявок»</h3><span class="date">2025</span></div>
+        <p class="sub">Самостоятельная разработка конфигурации на 1С:Предприятие 8.3 с нуля</p>
+        <ul>
+          <li>Спроектировал метаданные: справочники контрагентов и услуг, документы заявок, регистры накопления по статусам</li>
+          <li>Реализовал проведение документов и контроль заполнения на управляемых формах</li>
+          <li>Сделал отчёты на СКД по исполнителям и срокам с пользовательскими настройками</li>
+          <li>Настроил роли и разграничение прав, подготовил инструкцию пользователя</li>
+        </ul>
+        <div class="stack"><span class="chip">1С 8.3</span><span class="chip">СКД</span><span class="chip">регистры</span><span class="chip">управляемые формы</span></div>
+      </article>
+
+      <article class="proj">
+        <div class="proj-head"><h3>Обмен 1С ↔ веб-приложение</h3><span class="date">2025</span></div>
+        <p class="sub">Интеграция конфигурации 1С с внешним сервисом на ASP.NET Core</p>
+        <ul>
+          <li>Реализовал HTTP-сервис в 1С для выгрузки номенклатуры и цен в JSON</li>
+          <li>Настроил приём заказов из внешнего сервиса с созданием документов и логированием ошибок</li>
+          <li>Вынес обмен в регламентное задание с повторными попытками при недоступности сервиса</li>
+        </ul>
+        <div class="stack"><span class="chip">HTTP-сервисы</span><span class="chip">JSON</span><span class="chip">регламентные задания</span><span class="chip">ASP.NET Core</span></div>
+      </article>
+
+      <article class="proj">
+        <div class="proj-head"><h3>QualityGoods</h3><span class="date">2025 — 2026</span></div>
+        <p class="sub">Веб-приложение для мониторинга и сравнения цен на комплектующие ПК (C# / ASP.NET Core)</p>
+        <ul>
+          <li>Full-stack приложение на ASP.NET Core 8 MVC и PostgreSQL через Entity Framework Core</li>
+          <li>Модуль веб-скрапинга с двухфазным сбором данных, агрегация цен по магазинам и конвертация валют</li>
+          <li>Аутентификация через ASP.NET Identity и Google OAuth 2.0, 17 UI-автотестов на Playwright + NUnit</li>
+        </ul>
+        <div class="stack"><span class="chip">ASP.NET Core 8</span><span class="chip">PostgreSQL</span><span class="chip">EF Core</span><span class="chip">Playwright</span></div>
+      </article>
     </section>
   </main>
+</div>
 
-  <footer class="site-footer">
-    <div class="container">© <span id="year"></span> KillomQuality</div>
-  </footer>
-
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
